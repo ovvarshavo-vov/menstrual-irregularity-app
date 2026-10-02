@@ -1,83 +1,372 @@
-function PadIllustration() {
-  return (
-    <svg viewBox="0 0 520 520" className="pad-illustration" aria-label="Menstrual support pad illustration">
-      <defs>
-        <linearGradient id="padBody" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stopColor="#fffaf9" />
-          <stop offset="100%" stopColor="#f7dfe8" />
-        </linearGradient>
-        <linearGradient id="padShadow" x1="0%" x2="100%" y1="0%" y2="100%">
-          <stop offset="0%" stopColor="#f8c6d8" />
-          <stop offset="100%" stopColor="#e9d8ff" />
-        </linearGradient>
-      </defs>
-
-      <circle cx="260" cy="255" r="172" fill="rgba(255,255,255,0.28)" />
-      <circle cx="194" cy="155" r="66" fill="rgba(255,255,255,0.18)" />
-      <circle cx="356" cy="350" r="82" fill="rgba(255,255,255,0.18)" />
-
-      <g transform="translate(84 70)">
-        <rect x="82" y="85" width="230" height="255" rx="68" fill="url(#padBody)" />
-        <rect x="105" y="102" width="184" height="221" rx="52" fill="#fffdfd" opacity="0.78" />
-        <path d="M150 155 C160 120, 212 104, 252 127 C278 143, 297 165, 296 203 C295 263, 244 313, 187 311 C147 309, 123 278, 118 242 C112 203, 122 176, 150 155Z" fill="url(#padShadow)" opacity="0.75" />
-        <circle cx="161" cy="188" r="18" fill="#f6a7c3" opacity="0.8" />
-        <circle cx="208" cy="161" r="16" fill="#d7c5ff" opacity="0.8" />
-        <circle cx="252" cy="188" r="18" fill="#f8cfd5" opacity="0.85" />
-        <circle cx="198" cy="228" r="19" fill="#f7b9ca" opacity="0.8" />
-        <circle cx="244" cy="248" r="16" fill="#d9c9ff" opacity="0.8" />
-        <rect x="88" y="240" width="240" height="20" rx="10" fill="#f7d4e2" opacity="0.75" />
-        <rect x="140" y="85" width="150" height="34" rx="17" fill="#f7c9d9" opacity="0.9" />
-        <rect x="130" y="340" width="170" height="22" rx="11" fill="#efbfd4" opacity="0.8" />
-      </g>
-
-      <g transform="translate(0 0)">
-        <circle cx="106" cy="95" r="18" fill="#f7d9e5" />
-        <circle cx="434" cy="120" r="22" fill="#dfe5ff" />
-        <circle cx="398" cy="425" r="26" fill="#f8d8e7" />
-        <circle cx="126" cy="404" r="20" fill="#e6d9ff" />
-      </g>
-    </svg>
-  );
+* {
+  box-sizing: border-box;
 }
 
-export default function App() {
-  return (
-    <div className="page-shell">
-      <div className="orb orb-one" />
-      <div className="orb orb-two" />
-      <div className="orb orb-three" />
+:root {
+  --bg-a: #fef2f7;
+  --bg-b: #f6f0ff;
+  --bg-c: #fffaf2;
+  --text-strong: #452c4b;
+  --text-soft: #6f5a73;
+  --pink-1: #f7bfd3;
+  --pink-2: #f49bb9;
+  --pink-3: #f5dfe9;
+  --lavender: #d9d1ff;
+  --peach: #fce7d7;
+  --white: #ffffff;
+  --shadow: rgba(116, 82, 112, 0.12);
+}
 
-      <main className="hero-section">
-        <section className="content-panel">
-          <p className="eyebrow">Wellness support</p>
-          <h1>Menstrual Irregularity</h1>
-          <p className="subtitle">
-            Understand your cycle with gentle insights, symptom tracking, and smarter care.
-          </p>
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  min-height: 100vh;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: linear-gradient(135deg, var(--bg-a), var(--bg-b) 48%, var(--bg-c));
+  color: var(--text-strong);
+}
 
-          <button type="button" className="cta-button">
-            Get Started
-          </button>
+body {
+  min-height: 100vh;
+}
 
-          <div className="mini-stats">
-            <div>
-              <strong>12k+</strong>
-              <span>Cycle insights</span>
-            </div>
-            <div>
-              <strong>4.9/5</strong>
-              <span>User care</span>
-            </div>
-          </div>
-        </section>
+button,
+a {
+  font: inherit;
+}
 
-        <section className="visual-panel">
-          <div className="floating-card">
-            <span className="card-tag">Smart Cycle Care</span>
-            <PadIllustration />
-          </div>
-        </section>
-      </main>
-    </div>
-  );
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+.page-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: 26px 32px 40px;
+}
+
+.ambient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.ambient-one {
+  width: 440px;
+  height: 440px;
+  background: rgba(246, 189, 214, 0.42);
+  top: -120px;
+  left: -90px;
+}
+
+.ambient-two {
+  width: 520px;
+  height: 520px;
+  background: rgba(216, 214, 255, 0.38);
+  right: -120px;
+  bottom: -130px;
+}
+
+.ambient-three {
+  width: 280px;
+  height: 280px;
+  background: rgba(255, 230, 176, 0.38);
+  left: 50%;
+  top: 8%;
+}
+
+.topbar {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px 0 20px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f6bfd2, #d5d0ff);
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(224, 152, 182, 0.28);
+}
+
+.nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.nav-button {
+  border: none;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--text-strong);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  box-shadow: 0 14px 28px rgba(116, 82, 112, 0.06);
+}
+
+.hero-section {
+  position: relative;
+  z-index: 2;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: 24px;
+  min-height: calc(100vh - 120px);
+}
+
+.content-panel {
+  padding: 18px 8px 18px 8px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 20px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-soft);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 24px rgba(110, 78, 97, 0.06);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.2rem, 5vw, 6.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+  font-weight: 800;
+}
+
+.subtitle {
+  max-width: 550px;
+  margin: 22px 0 0;
+  color: var(--text-soft);
+  font-size: clamp(1.03rem, 1.6vw, 1.32rem);
+  line-height: 1.7;
+}
+
+.cta-row {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f59db8, #d7c6ff);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 18px 30px;
+  box-shadow: 0 18px 40px rgba(226, 138, 179, 0.35);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 22px 44px rgba(226, 138, 179, 0.42);
+}
+
+.secondary-link {
+  color: var(--text-strong);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.mini-stats {
+  margin-top: 42px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.mini-stats div {
+  min-width: 140px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 22px;
+  padding: 16px 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 30px rgba(108, 79, 100, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mini-stats strong {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.mini-stats span {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+}
+
+.visual-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 8px 10px 0;
+}
+
+.floating-card {
+  position: relative;
+  width: min(100%, 560px);
+  min-height: 600px;
+  padding: 26px 22px 22px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  box-shadow: 0 28px 55px rgba(126, 90, 115, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.card-tag {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--text-strong);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  border-radius: 999px;
+}
+
+.card-info {
+  position: absolute;
+  top: 26px;
+  left: 24px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-info small {
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+}
+
+.card-info strong {
+  font-size: 1rem;
+}
+
+.card-info span {
+  display: inline-block;
+  color: #8f6c8d;
+  font-weight: 700;
+  font-size: 0.78rem;
+}
+
+.pad-illustration {
+  width: 100%;
+  max-width: 480px;
+  margin: 88px auto 0;
+  filter: drop-shadow(0 26px 30px rgba(148, 118, 146, 0.12));
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    padding-bottom: 10px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 8px;
+  }
+
+  .subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-row {
+    justify-content: center;
+  }
+
+  .mini-stats {
+    justify-content: center;
+  }
+
+  .visual-panel {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell {
+    padding: 20px 18px 28px;
+  }
+
+  .topbar {
+    margin-bottom: 8px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  .floating-card {
+    min-height: 470px;
+  }
+
+  .card-tag {
+    right: 16px;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
 }
