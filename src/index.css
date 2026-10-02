@@ -1,0 +1,83 @@
+function PadIllustration() {
+  return (
+    <svg viewBox="0 0 520 520" className="pad-illustration" aria-label="Menstrual support pad illustration">
+      <defs>
+        <linearGradient id="padBody" x1="0%" x2="100%" y1="0%" y2="100%">
+          <stop offset="0%" stopColor="#fffaf9" />
+          <stop offset="100%" stopColor="#f7dfe8" />
+        </linearGradient>
+        <linearGradient id="padShadow" x1="0%" x2="100%" y1="0%" y2="100%">
+          <stop offset="0%" stopColor="#f8c6d8" />
+          <stop offset="100%" stopColor="#e9d8ff" />
+        </linearGradient>
+      </defs>
+
+      <circle cx="260" cy="255" r="172" fill="rgba(255,255,255,0.28)" />
+      <circle cx="194" cy="155" r="66" fill="rgba(255,255,255,0.18)" />
+      <circle cx="356" cy="350" r="82" fill="rgba(255,255,255,0.18)" />
+
+      <g transform="translate(84 70)">
+        <rect x="82" y="85" width="230" height="255" rx="68" fill="url(#padBody)" />
+        <rect x="105" y="102" width="184" height="221" rx="52" fill="#fffdfd" opacity="0.78" />
+        <path d="M150 155 C160 120, 212 104, 252 127 C278 143, 297 165, 296 203 C295 263, 244 313, 187 311 C147 309, 123 278, 118 242 C112 203, 122 176, 150 155Z" fill="url(#padShadow)" opacity="0.75" />
+        <circle cx="161" cy="188" r="18" fill="#f6a7c3" opacity="0.8" />
+        <circle cx="208" cy="161" r="16" fill="#d7c5ff" opacity="0.8" />
+        <circle cx="252" cy="188" r="18" fill="#f8cfd5" opacity="0.85" />
+        <circle cx="198" cy="228" r="19" fill="#f7b9ca" opacity="0.8" />
+        <circle cx="244" cy="248" r="16" fill="#d9c9ff" opacity="0.8" />
+        <rect x="88" y="240" width="240" height="20" rx="10" fill="#f7d4e2" opacity="0.75" />
+        <rect x="140" y="85" width="150" height="34" rx="17" fill="#f7c9d9" opacity="0.9" />
+        <rect x="130" y="340" width="170" height="22" rx="11" fill="#efbfd4" opacity="0.8" />
+      </g>
+
+      <g transform="translate(0 0)">
+        <circle cx="106" cy="95" r="18" fill="#f7d9e5" />
+        <circle cx="434" cy="120" r="22" fill="#dfe5ff" />
+        <circle cx="398" cy="425" r="26" fill="#f8d8e7" />
+        <circle cx="126" cy="404" r="20" fill="#e6d9ff" />
+      </g>
+    </svg>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="page-shell">
+      <div className="orb orb-one" />
+      <div className="orb orb-two" />
+      <div className="orb orb-three" />
+
+      <main className="hero-section">
+        <section className="content-panel">
+          <p className="eyebrow">Wellness support</p>
+          <h1>Menstrual Irregularity</h1>
+          <p className="subtitle">
+            Understand your cycle with gentle insights, symptom tracking, and smarter care.
+          </p>
+
+          <button type="button" className="cta-button">
+            Get Started
+          </button>
+
+          <div className="mini-stats">
+            <div>
+              <strong>12k+</strong>
+              <span>Cycle insights</span>
+            </div>
+            <div>
+              <strong>4.9/5</strong>
+              <span>User care</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="visual-panel">
+          <div className="floating-card">
+            <span className="card-tag">Smart Cycle Care</span>
+            <PadIllustration />
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
